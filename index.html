@@ -1,527 +1,396 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Ram & Antara getting hitched!</title>
-    <meta name="description" content="We would like to invite you to our big day.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="Ram & Antara getting hitched">
-    <meta property="og:description" content="We would like to invite you to our big day.">
-    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">
+
+    <!-- ============================================================= -->
+    <!--  EDIT: names, date & social-share preview text               -->
+    <!-- ============================================================= -->
+    <title>Alex &amp; Sam — We're getting married!</title>
+    <meta name="description" content="Join us as we celebrate our wedding. All the details are here.">
+    <meta name="theme-color" content="#7a8b6f">
+    <meta property="og:title" content="Alex &amp; Sam are getting married!">
+    <meta property="og:description" content="We would love for you to be part of our big day.">
     <meta property="og:type" content="website">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 
-    <script>
-        // load css files from CDN if local node_modules fail
-        function loadCssFromCDN(css) {
-            // create new link tag
-            const link = document.createElement('link');
-            if (css === 'animate.css') {
-                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
-            } else if (css === 'font-awesome.css') {
-                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-            }
-            link.rel = 'stylesheet';
+    <link rel="icon" href="favicon.ico">
 
-            // add link tag to head section
-            document.getElementsByTagName('head')[0].appendChild(link);
+    <!-- Fonts: a classic serif for headings + a clean sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           THEME — change these variables to restyle the whole site
+           ========================================================= */
+        :root {
+            --color-bg:      #faf8f4;   /* page background          */
+            --color-panel:   #ffffff;   /* card / alt-section bg     */
+            --color-accent:  #7a8b6f;   /* sage green — buttons etc  */
+            --color-accent-dark: #5e6c54;
+            --color-text:    #3b3a36;
+            --color-muted:   #8a877f;
+            --font-head:     "Cormorant Garamond", Georgia, serif;
+            --font-body:     "Jost", "Helvetica Neue", Arial, sans-serif;
+            --maxw:          1080px;
         }
 
-        // load js files from CDN if local node_modules fail
-        function loadJsFromCDN(js) {
-            if (js === 'waypoints.js') {
-                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
-            } else if (js === 'jquery.js') {
-                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
-            }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
-    </script>
+        h1, h2, h3 { font-family: var(--font-head); font-weight: 500; margin: 0 0 .4em; line-height: 1.15; }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); text-align: center; }
+        h3 { font-size: 1.5rem; }
+        p  { margin: 0 0 1em; }
+        a  { color: var(--color-accent-dark); }
+        img { max-width: 100%; display: block; }
 
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/queries.css">
-    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+        .section { padding: 90px 0; }
+        .section--alt { background: var(--color-panel); }
+        .center { text-align: center; }
+        .muted  { color: var(--color-muted); }
+        .divider {
+            width: 60px; height: 1px; background: var(--color-accent);
+            margin: 18px auto 36px; opacity: .6;
+        }
+        .label {
+            font-size: .8rem; letter-spacing: .28em; text-transform: uppercase;
+            color: var(--color-accent); font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block; cursor: pointer;
+            font-family: var(--font-body); font-size: .8rem; letter-spacing: .18em;
+            text-transform: uppercase; text-decoration: none;
+            padding: 14px 34px; border-radius: 2px;
+            background: var(--color-accent); color: #fff; border: 1px solid var(--color-accent);
+            transition: background .2s, color .2s;
+        }
+        .btn:hover { background: var(--color-accent-dark); border-color: var(--color-accent-dark); color: #fff; }
+        .btn--ghost { background: transparent; color: var(--color-accent-dark); }
+        .btn--ghost:hover { background: var(--color-accent); color: #fff; }
+
+        /* ---------- Top navigation ---------- */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            display: flex; align-items: center; justify-content: center; gap: 28px;
+            padding: 16px; background: rgba(250,248,244,.92);
+            backdrop-filter: blur(6px); border-bottom: 1px solid #ece8df;
+            font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+        }
+        .nav a { color: var(--color-text); text-decoration: none; }
+        .nav a:hover { color: var(--color-accent); }
+        @media (max-width: 720px) { .nav { gap: 14px; font-size: .68rem; flex-wrap: wrap; } }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 120px 24px 60px;
+            /* EDIT: drop a photo URL below to use a background image instead of the gradient */
+            background: linear-gradient(160deg, #eef0e8 0%, #f7f3ec 60%, #f1e9df 100%);
+        }
+        .hero .label { margin-bottom: 18px; }
+        .hero h1 { font-size: clamp(3rem, 11vw, 7rem); }
+        .hero .amp { font-style: italic; color: var(--color-accent); display: block; font-size: .55em; margin: .1em 0; }
+        .hero .meta { font-size: 1.15rem; letter-spacing: .04em; margin-top: 10px; }
+
+        /* ---------- Countdown ---------- */
+        .countdown { display: flex; gap: 30px; justify-content: center; margin: 40px 0 10px; }
+        .countdown div { min-width: 64px; }
+        .countdown .num { font-family: var(--font-head); font-size: 2.6rem; line-height: 1; }
+        .countdown .unit { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-muted); }
+
+        /* ---------- Story ---------- */
+        .story { max-width: 720px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
+
+        /* ---------- Schedule ---------- */
+        .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+        .event {
+            background: var(--color-bg); border: 1px solid #ece8df; border-radius: 4px;
+            padding: 32px 28px; text-align: center;
+        }
+        .event .time { display: block; color: var(--color-accent); letter-spacing: .12em; font-size: .85rem; margin-bottom: 14px; }
+
+        /* ---------- Details grid ---------- */
+        .details { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        .details h3 { font-size: 1.3rem; }
+
+        /* ---------- RSVP form ---------- */
+        .form { max-width: 560px; margin: 0 auto; }
+        .form .field { margin-bottom: 18px; text-align: left; }
+        .form label { display: block; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; color: var(--color-muted); }
+        .form input, .form select, .form textarea {
+            width: 100%; padding: 13px 15px; font-family: var(--font-body); font-size: 1rem;
+            border: 1px solid #d8d3c8; border-radius: 3px; background: #fff; color: var(--color-text);
+        }
+        .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--color-accent); }
+        .form .row { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+        @media (max-width: 540px) { .form .row { grid-template-columns: 1fr; } }
+
+        /* ---------- FAQ ---------- */
+        .faq { max-width: 760px; margin: 0 auto; }
+        .faq details { border-bottom: 1px solid #e6e1d6; padding: 18px 0; }
+        .faq summary { cursor: pointer; font-family: var(--font-head); font-size: 1.3rem; list-style: none; }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: "+"; float: right; color: var(--color-accent); }
+        .faq details[open] summary::after { content: "–"; }
+
+        /* ---------- Footer ---------- */
+        footer { background: var(--color-accent-dark); color: #eef0e8; text-align: center; padding: 50px 24px; }
+        footer .heart { color: #e8b4b8; }
+    </style>
 </head>
 <body id="top">
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-<section class="hero">
-    <section class="navigation">
-        <header>
-            <div class="header-content">
-                <div class="logo"><a href="#"><img src="img/logo.png" alt="Logo"></a></div>
-                <div class="header-nav">
-                    <nav>
-                        <ul class="primary-nav">
-                            <li><a href="#intro">How we met</a></li>
-                            <li><a href="#events">Events</a></li>
-                            <li><a href="#instagram">Instagram</a></li>
-                            <li><a href="#eng-pics">Engagement</a></li>
-                            <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li>
-                        </ul>
-                        <ul class="member-actions">
-                            <li><a href="#map" class="login">Venue</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="navicon">
-                    <a class="nav-toggle" href="#"><span></span></a>
-                </div>
-            </div>
-        </header>
-    </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="hero-content text-center">
-                    <!--<h1>Ram and Antara</h1>-->
-                    <img src="img/logo-lg.png">
-                    <!--<p class="intro">Ram & Antara are getting hitched!</p>-->
-                    <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
-            <div class="col-sm-4 hidden-xs"></div>
-        </div>
-    </div>
-    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
-</section>
 
-<section id="invitation" class="section-padding">
+<!-- ================= NAVIGATION ================= -->
+<nav class="nav">
+    <a href="#story">Our Story</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#details">Details</a>
+    <a href="#faq">FAQ</a>
+    <a href="#rsvp">RSVP</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<!-- EDIT: your names, tagline, date & city -->
+<header class="hero">
+    <span class="label">We're getting married</span>
+    <h1>Alex<span class="amp">&amp;</span>Sam</h1>
+    <p class="meta">September 12, 2026 &nbsp;·&nbsp; Portland, Oregon</p>
+
+    <!-- Countdown — set the date in the data-date attribute (YYYY-MM-DDTHH:MM) -->
+    <div class="countdown" id="countdown" data-date="2026-09-12T16:00">
+        <div><div class="num" data-days>—</div><div class="unit">Days</div></div>
+        <div><div class="num" data-hours>—</div><div class="unit">Hours</div></div>
+        <div><div class="num" data-mins>—</div><div class="unit">Minutes</div></div>
+        <div><div class="num" data-secs>—</div><div class="unit">Seconds</div></div>
+    </div>
+
+    <p style="margin-top:24px"><a href="#rsvp" class="btn">RSVP</a></p>
+</header>
+
+<!-- ================= OUR STORY ================= -->
+<section id="story" class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>We are getting hitched</h3>
-                <p>The dates are 27<sup>th</sup> & 28<sup>th</sup> of November '17 and we would like you to be a part of
-                    it.</p>
-                <div class="share-bar"></div>
-            </div>
+        <span class="label center" style="display:block">How it started</span>
+        <h2>Our Story</h2>
+        <div class="divider"></div>
+        <!-- EDIT: tell your story -->
+        <div class="story muted">
+            <p>We met on a rainy afternoon in 2019, sharing the last table at a tiny coffee shop.
+               One conversation turned into a hundred, and somewhere between road trips and
+               late-night talks we knew this was it.</p>
+            <p>Now, after years of adventures, we can't wait to start the next chapter — and we'd
+               be honored to have you there when we say "I do."</p>
         </div>
     </div>
 </section>
 
-<section id="intro">
+<!-- ================= SCHEDULE ================= -->
+<section id="schedule" class="section section--alt">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3 class="header">How we met</h3>
+        <span class="label center" style="display:block">The day of</span>
+        <h2>Schedule</h2>
+        <div class="divider"></div>
+        <!-- EDIT: add / remove .event blocks as needed -->
+        <div class="events">
+            <div class="event">
+                <span class="time">4:00 PM</span>
+                <h3>Ceremony</h3>
+                <p class="muted">Join us in the garden as we exchange vows. Please arrive 15 minutes early to be seated.</p>
+            </div>
+            <div class="event">
+                <span class="time">5:00 PM</span>
+                <h3>Cocktail Hour</h3>
+                <p class="muted">Drinks, hors d'oeuvres, and lawn games on the terrace while we take photos.</p>
+            </div>
+            <div class="event">
+                <span class="time">6:30 PM</span>
+                <h3>Dinner &amp; Dancing</h3>
+                <p class="muted">A seated dinner followed by toasts, cake, and a night of celebration on the dance floor.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_2317.jpg" class="wp1"></div>
-            <div class="col-md-6">
-                <p>
-                    I first saw Antara in the Fall of 2008 when we started our undergrad. I was instantly attracted to
-                    her but was far too nervous to speak to her. I had told my friend I liked her and news had traveled
-                    fast and she soon found out. Her first reaction was "Who is Ram?" and she began searching for me in
-                    the class. She started to take notice of me and no matter how boring the lecture was, we never
-                    missed a class after that. After a good few months I finally plucked up the courage to ask her out
-                    and the rest is history :)
+    </div>
+</section>
+
+<!-- ================= DETAILS ================= -->
+<section id="details" class="section">
+    <div class="container">
+        <span class="label center" style="display:block">Good to know</span>
+        <h2>Details</h2>
+        <div class="divider"></div>
+        <div class="details">
+            <!-- EDIT: venue -->
+            <div>
+                <h3>Venue</h3>
+                <p class="muted">
+                    The Hawthorne Estate<br>
+                    1234 Garden Lane<br>
+                    Portland, OR 97201
                 </p>
+                <!-- EDIT: replace the query with your venue for the map link -->
+                <p><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=The+Hawthorne+Estate+Portland+OR" target="_blank" rel="noopener">Open in Maps</a></p>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/DSD_0214.jpg" class="wp2"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/IMG_2317.jpg" class="wp8"></div>
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/DSD_0214.jpg" class="wp9"></div>
+            <!-- EDIT: travel & stay -->
+            <div>
+                <h3>Travel &amp; Stay</h3>
+                <p class="muted">The nearest airport is PDX, about 20 minutes away. We've reserved a room block at
+                    the Riverview Hotel — mention "Alex &amp; Sam" when booking.</p>
+            </div>
+            <!-- EDIT: dress code -->
+            <div>
+                <h3>Dress Code</h3>
+                <p class="muted">Garden formal. Think florals and light suits — and comfortable shoes,
+                    the ceremony is on grass!</p>
+            </div>
+            <!-- EDIT: registry -->
+            <div>
+                <h3>Registry</h3>
+                <p class="muted">Your presence is the only present we need. If you'd like to give a gift,
+                    our registry is linked below.</p>
+                <p><a class="btn btn--ghost" href="#" target="_blank" rel="noopener">View Registry</a></p>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="events section-padding" id="events">
+<!-- ================= FAQ ================= -->
+<section id="faq" class="section section--alt">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="header">Events</h3>
-            </div>
+        <span class="label center" style="display:block">Questions</span>
+        <h2>FAQ</h2>
+        <div class="divider"></div>
+        <!-- EDIT: add / remove questions -->
+        <div class="faq">
+            <details>
+                <summary>Can I bring a plus-one?</summary>
+                <p class="muted">Your invitation will note how many seats we've reserved for you. If you have
+                    questions, just reach out!</p>
+            </details>
+            <details>
+                <summary>Are kids welcome?</summary>
+                <p class="muted">We love your little ones, but this will be an adults-only celebration so everyone
+                    can relax and dance the night away.</p>
+            </details>
+            <details>
+                <summary>Is there parking?</summary>
+                <p class="muted">Yes — free parking is available on-site, and ride-shares can drop off at the
+                    main entrance.</p>
+            </details>
+            <details>
+                <summary>What if I have a dietary restriction?</summary>
+                <p class="muted">Let us know in the RSVP form below and we'll make sure you're taken care of.</p>
+            </details>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
-                <div class="wp3">
-                    <p><strong>27th November</strong></p>
-
-                    <h5>Mehndi <span class="time">1PM - 5PM</span></h5>
-                    <p>It's one of the oldest traditional Indian pre wedding ceremony where the bride and groom
-                        attend the event together and a professional mehndi artist applies
-                        mehndi to the bride's hands and feet. This will be having a celebratory
-                        festival feel to it with people wearing vibrant clothes and dancing, singing, playing
-                        games and a lot more.</p>
-                </div>
-                <div class="wp5">
-                    <h5>Cocktail Night <span class="time">7PM - 12AM</span></h5>
-                    <p>This event is no way close to ethnic. The bride & groom would like to have some "shots before the
-                        knot". With booze flowing down the floor and the western attire on, everyone would be busy
-                        showing off their new moves on the stage which they have finely honed. Lastly, expect some beer
-                        pong matches & karaoke for sure.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
-                <div class="wp4">
-                    <p><strong>28th November</strong></p>
-
-                    <h5>Haldi <span class="time">10AM-11AM</span></h5>
-                    <p>The haldi ceremony is usually held separately for the bride and the groom. This one is for the
-                        bride. It is a low-key event that involves the application of turmeric paste on the hands, legs
-                        and face of the bride. The groom is not allowed to see the bride after this ritual until the
-                        final wedding ceremony starts.</p>
-                </div>
-                <div class="wp6">
-                    <h5>Wedding <span class="time">6PM-12AM</span></h5>
-                    <p>This is the main event in the entire wedding when the bride and the groom tie the
-                        knot. The groom comes with the barat and is greeted by the bride side with some dhol of course
-                        as maximum number of guests would be attending this event. This is when the couple circle the
-                        sacred fire and are finally declared husband and wife.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row section-padding">
-            <div class="col-md-4 col-md-offset-4 text-center">
-                <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
-                    <i class="fa fa-barcode"></i>&nbsp;&nbsp;Dress code
-                </a>
-            </div>
-        </div>
-        <!--<div class="row">
-            <div class="col-xs-12 section-border section-padding">
-            </div>
-        </div>-->
     </div>
-
-    <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
-                    <h3 class="text-center section-padding">Ugh... dress codes?</h3>
-                    <h5>Mehndi <span class="time">1PM - 5PM</span></h5>
-                    <p>
-                        <strong>Ethnic indian wear</strong>
-                        <br>
-                        Ladies can wear something
-                        <a href="https://www.pinterest.com/ramswarooppatra/mehndi-dress-for-women/">bright & vivid</a>
-                        and gentlemen can be on
-                        their <a href="https://www.pinterest.com/ramswarooppatra/mehndi-dress-for-men/">vibrant
-                        kurtas</a> with pants or pyjamas along with an optional shawl.
-                    </p>
-                    <h5>Cocktail Night <span class="time">7PM - 12AM</span></h5>
-                    <p>
-                        <strong>Western attire</strong>
-                        <br>
-                        A semi-formal look that is contemporary & fashionable which is not too prim & proper is the best
-                        to pull off this night. You can see some pins for
-                        <a href="https://www.pinterest.com/ramswarooppatra/cocktail-night-outfit-for-women/">ladies</a>
-                        & <a href="https://www.pinterest.com/ramswarooppatra/cocktail-night-outfit-for-men/">gents</a>.
-                    </p>
-                    <h5>Wedding <span class="time">6PM-12AM</span></h5>
-                    <p>
-                        <strong>Indo-western</strong>
-                        <br>
-                        Ladies can flaunt their unconventional sarees,
-                        <a href="https://www.pinterest.com/ramswarooppatra/indo-western-lehengas/">lehengas</a>,
-                        <a href="https://www.pinterest.com/ramswarooppatra/indo-western-anarkalis/">anarkalis</a>,
-                        dresses and the list
-                        goes on whereas gentlemen can wear any kind of suit or just blazer. If you don't like to wear a
-                        suit/blazer, you can do a <a
-                            href="https://www.pinterest.com/ramswarooppatra/high-neck-jackets-for-men/">high-neck
-                        (band gala) waistcoat & shirt</a> combo.
-                    </p>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
 </section>
 
-<section id="instagram" class="section-padding">
+<!-- ================= RSVP ================= -->
+<section id="rsvp" class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>A picture is worth a thousand words!</h3>
-                <p>Help us capture the moment, tag your photos with the hashtag
-                    <a href="https://instagram.com/explore/tags/ramandantara/" target="_blank">#RamAndAntara</a>
-                </p>
-            </div>
-        </div>
-        <div class="row section-border wp7">
-            <div class="col-md-4 col-md-offset-4">
-                <img src="img/iphone_instagram.jpg">
-            </div>
-        </div>
-    </div>
-</section>
+        <span class="label center" style="display:block">Will we see you there?</span>
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="center muted" style="max-width:560px;margin:0 auto 30px">
+            Kindly respond by <strong>August 1, 2026</strong>.
+        </p>
 
-<section id="eng-pics" class="section-padding">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3 class="header">Engagement Pics</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/_RFX2942-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/_RFX2942-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_3483-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/IMG_3483-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/_RFX2992-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/_RFX2992-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/_RFX3064-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/_RFX3064-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/NGP_4089-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/NGP_4089-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/NGP_4119-lg.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/NGP_4119-sm.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row hidden-lg hidden-md hidden-xs">
-            <div class="col-xs-12 section-border section-padding"></div>
-        </div>
-    </div>
-    <!--<div class="row">
-        <div class="col-md-12">
-            <div class="diamond floating-logo">
-                <img src="img/sketch-logo.png" alt="Sketch Logo">
-                <div class="ring"></div>
-            </div>
-        </div>
-    </div>-->
-</section>
-
-<section id="video-bg" class="hidden-sm hidden-xs">
-    <div id="bgndVideo" class="player"
-         data-property="{videoURL:'https://youtu.be/9giqL1H6yRs',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:80, stopAt:259, opacity:1}">
-    </div>
-    <div id="video-content">
-        <h5>Kolkata</h5>
-        <p>City of joy</p>
-    </div>
-</section>
-
-<section id="map" class="section-padding">
-    <div class="text-center">
-        <h3>How do I get there?</h3>
-        <p>It's way easier than you think!</p>
-    </div>
-    <div id="map-canvas"></div>
-    <div id="map-content-wrapper" class="container pointer-events-none">
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-                <div class="text-center">
-                    <div id="btn-show-content" class="toggle-map-content pointer-events-auto">
-                        <i class="fa fa-info-circle"></i>&nbsp;&nbsp; Show info
-                    </div>
+        <!--
+          EDIT: How RSVPs are collected.
+          Easiest no-code option: create a free Google Form and either
+            (a) embed it here with an <iframe>, or
+            (b) replace the form's action with your Formspree/Getform endpoint.
+          The form below posts nowhere by default — wire up "action" before going live.
+        -->
+        <form class="form" action="" method="POST" onsubmit="return rsvpDemo(event)">
+            <div class="row">
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" required>
                 </div>
-                <div id="map-content" class="pointer-events-auto">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>ITC Fortune Park</h5>
-                            <p>Kona Expressway, Howrah, West Bengal 711403, India</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Mr. Amit Roy</h5>
-                            <p><i class="fa fa-mobile"></i> <a href="tel://+919412345678">+91 9412345678</a><br>
-                                <i class="fa fa-mobile"></i> <a href="tel://+917123456789">+91 7123456789</a></p>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-6" style="padding: 5px;">
-                            <a class="btn btn-fill btn-small"
-                               href="https://m.uber.com/ul/?action=setPickup&client_id=Yh7Dl6SjB56RY2JuuZF8ttVa6ryFV78W&pickup=my_location&dropoff[formatted_address]=Fortune%20Park%20Panchwati%20-%20Hotels%20in%20Kolkata%2C%20Howrah%2C%20West%20Bengal%2C%20India&dropoff[latitude]=22.593276&dropoff[longitude]=88.270277"><i
-                                    class="fa fa-taxi"></i>&nbsp;&nbsp;Book Uber</a>
-                        </div>
-                        <div class="col-md-6" style="padding: 5px;">
-                            <a class="btn btn-accent btn-small" id="btn-show-map"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show
-                                map</a>
-                        </div>
-                    </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="rsvp text-center" id="rsvp">
-
-    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
-                    <div class="section-padding">
-                        <h3>Thank you!</h3>
-                        <p>We are glad to see you join us on our big day.</p>
-                        <div id="add-to-cal"></div>
-                    </div>
+            <div class="row">
+                <div class="field">
+                    <label for="attending">Will you attend?</label>
+                    <select id="attending" name="attending" required>
+                        <option value="">Choose…</option>
+                        <option value="yes">Joyfully accepts</option>
+                        <option value="no">Regretfully declines</option>
+                    </select>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Husband/Wife or kids"
-                                                                  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
-                    </div>
-                    <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
-                    </button>
-                </form>
+                <div class="field">
+                    <label for="guests">Number of guests</label>
+                    <input id="guests" name="guests" type="number" min="1" max="6" value="1">
+                </div>
             </div>
-        </div>
+            <div class="field">
+                <label for="diet">Dietary restrictions / notes</label>
+                <textarea id="diet" name="diet" rows="3"></textarea>
+            </div>
+            <p class="center"><button class="btn" type="submit">Send RSVP</button></p>
+        </form>
     </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center content">
-                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
-                <p>Crafted by Ram with lots of <span class="fa fa-heart pulse2"></span> for Antara</p>
-            </div>
-        </div>
-    </div>
+    <p style="font-family:var(--font-head);font-size:1.8rem;margin:0 0 6px">Alex &amp; Sam</p>
+    <p class="muted" style="color:#c8cdbb">September 12, 2026 · Portland, Oregon</p>
+    <p style="margin-top:18px"><a href="#top" style="color:#eef0e8;text-decoration:none;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase">Back to top ↑</a></p>
+    <p class="muted" style="color:#9aa28a;font-size:.8rem;margin-top:24px">Made with <span class="heart">♥</span></p>
 </footer>
-<script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
-<script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
-<script src="js/jquery.fancybox.pack.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/jquery.mb.YTPlayer.min.js"></script>
-<script src="js/vendor/ouical.js"></script>
-<script src="js/scripts.min.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPw3GQYI3faa_9mRE6plWuM7xNEmrwH0&callback=initMap"></script>
-<!-- Google Analytics -->
+
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-46465113-4', 'auto');
-    ga('send', 'pageview');
+    /* ---------- Live countdown ---------- */
+    (function () {
+        var el = document.getElementById('countdown');
+        if (!el) return;
+        var target = new Date(el.getAttribute('data-date')).getTime();
+        var d = el.querySelector('[data-days]'),
+            h = el.querySelector('[data-hours]'),
+            m = el.querySelector('[data-mins]'),
+            s = el.querySelector('[data-secs]');
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
+        function tick() {
+            var diff = target - Date.now();
+            if (diff < 0) { d.textContent = h.textContent = m.textContent = s.textContent = '0'; return; }
+            d.textContent = Math.floor(diff / 86400000);
+            h.textContent = pad(Math.floor(diff / 3600000) % 24);
+            m.textContent = pad(Math.floor(diff / 60000) % 60);
+            s.textContent = pad(Math.floor(diff / 1000) % 60);
+        }
+        tick();
+        setInterval(tick, 1000);
+    })();
+
+    /* ---------- Demo RSVP handler ----------
+       Remove this once you wire the form to a real endpoint (Formspree,
+       Google Forms, etc.). It just shows a thank-you message locally. */
+    function rsvpDemo(e) {
+        e.preventDefault();
+        var form = e.target;
+        if (!form.getAttribute('action')) {
+            form.innerHTML = '<p class="center" style="font-family:var(--font-head);font-size:1.6rem">Thank you! 🌿<br><span class="muted" style="font-size:1rem">(Connect this form to a real endpoint to collect responses.)</span></p>';
+            return false;
+        }
+        return true;
+    }
 </script>
 </body>
 </html>
