@@ -1,40 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ============================================================= -->
-    <!--  EDIT: names, date & social-share preview text               -->
+    <!--  EDIT: your names + social-share preview text                 -->
     <!-- ============================================================= -->
-    <title>Alex &amp; Sam — We're getting married!</title>
-    <meta name="description" content="Join us as we celebrate our wedding. All the details are here.">
+    <title>Alex &amp; Sam — 23.08.2026</title>
+    <meta name="description" content="Nous nous marions ! Retrouvez ici toutes les informations.">
     <meta name="theme-color" content="#7a8b6f">
-    <meta property="og:title" content="Alex &amp; Sam are getting married!">
-    <meta property="og:description" content="We would love for you to be part of our big day.">
+    <meta property="og:title" content="Alex &amp; Sam — 23.08.2026">
+    <meta property="og:description" content="Nous serions honorés de votre présence à notre mariage.">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="favicon.ico">
 
-    <!-- Fonts: a classic serif for headings + a clean sans for body -->
+    <!-- Fonts: classic serif for headings + clean sans for body (Noto covers Armenian) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Noto+Serif+Armenian:wght@400;500;600&family=Noto+Sans+Armenian:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================================
            THEME — change these variables to restyle the whole site
            ========================================================= */
         :root {
-            --color-bg:      #faf8f4;   /* page background          */
-            --color-panel:   #ffffff;   /* card / alt-section bg     */
-            --color-accent:  #7a8b6f;   /* sage green — buttons etc  */
+            --color-bg:      #faf8f4;
+            --color-panel:   #ffffff;
+            --color-accent:  #7a8b6f;
             --color-accent-dark: #5e6c54;
             --color-text:    #3b3a36;
             --color-muted:   #8a877f;
-            --font-head:     "Cormorant Garamond", Georgia, serif;
-            --font-body:     "Jost", "Helvetica Neue", Arial, sans-serif;
+            --font-head:     "Cormorant Garamond", "Noto Serif Armenian", Georgia, serif;
+            --font-body:     "Jost", "Noto Sans Armenian", "Helvetica Neue", Arial, sans-serif;
             --maxw:          1080px;
+        }
+        /* When Armenian is active, prefer the Armenian font stacks */
+        html[lang="hy"] {
+            --font-head: "Noto Serif Armenian", "Cormorant Garamond", Georgia, serif;
+            --font-body: "Noto Sans Armenian", "Jost", "Helvetica Neue", Arial, sans-serif;
         }
 
         * { box-sizing: border-box; }
@@ -60,14 +65,8 @@
         .section--alt { background: var(--color-panel); }
         .center { text-align: center; }
         .muted  { color: var(--color-muted); }
-        .divider {
-            width: 60px; height: 1px; background: var(--color-accent);
-            margin: 18px auto 36px; opacity: .6;
-        }
-        .label {
-            font-size: .8rem; letter-spacing: .28em; text-transform: uppercase;
-            color: var(--color-accent); font-weight: 400;
-        }
+        .divider { width: 60px; height: 1px; background: var(--color-accent); margin: 18px auto 36px; opacity: .6; }
+        .label { font-size: .8rem; letter-spacing: .28em; text-transform: uppercase; color: var(--color-accent); font-weight: 400; }
 
         .btn {
             display: inline-block; cursor: pointer;
@@ -84,46 +83,58 @@
         /* ---------- Top navigation ---------- */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-            display: flex; align-items: center; justify-content: center; gap: 28px;
-            padding: 16px; background: rgba(250,248,244,.92);
+            display: flex; align-items: center; justify-content: center; gap: 26px;
+            padding: 14px 16px; background: rgba(250,248,244,.92);
             backdrop-filter: blur(6px); border-bottom: 1px solid #ece8df;
             font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
         }
         .nav a { color: var(--color-text); text-decoration: none; }
         .nav a:hover { color: var(--color-accent); }
-        @media (max-width: 720px) { .nav { gap: 14px; font-size: .68rem; flex-wrap: wrap; } }
 
-        /* ---------- Hero ---------- */
-        .hero {
-            min-height: 100vh; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; text-align: center;
-            padding: 120px 24px 60px;
-            /* EDIT: drop a photo URL below to use a background image instead of the gradient */
-            background: linear-gradient(160deg, #eef0e8 0%, #f7f3ec 60%, #f1e9df 100%);
+        /* ---------- Language toggle (flags) ---------- */
+        .lang { display: flex; gap: 6px; margin-left: 8px; }
+        .lang button {
+            cursor: pointer; background: none; border: none; padding: 4px;
+            font-size: 1.2rem; line-height: 1; border-radius: 3px;
+            opacity: .45; filter: grayscale(60%); transition: opacity .2s, filter .2s;
         }
-        .hero .label { margin-bottom: 18px; }
-        .hero h1 { font-size: clamp(3rem, 11vw, 7rem); }
-        .hero .amp { font-style: italic; color: var(--color-accent); display: block; font-size: .55em; margin: .1em 0; }
-        .hero .meta { font-size: 1.15rem; letter-spacing: .04em; margin-top: 10px; }
+        .lang button:hover { opacity: .85; filter: none; }
+        .lang button.active { opacity: 1; filter: none; outline: 2px solid var(--color-accent); }
+        @media (max-width: 720px) { .nav { gap: 12px; font-size: .66rem; flex-wrap: wrap; } }
+
+        /* ---------- Hero (with your photo) ---------- */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 130px 24px 70px; color: #fff;
+            background-color: #5e6c54; /* fallback colour shown until the photo loads */
+            /* EDIT: replace img/our-photo.jpg with your own photo (landscape works best).
+               The dark overlay keeps the text readable on top of any image. */
+            background-image:
+                linear-gradient(rgba(38,40,34,.45), rgba(38,40,34,.55)),
+                url('img/our-photo.jpg');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+        }
+        .hero .label { margin-bottom: 18px; color: #e9ede1; }
+        .hero h1 { font-size: clamp(3rem, 11vw, 7rem); text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+        .hero .amp { font-style: italic; color: #d8e0c8; display: block; font-size: .55em; margin: .1em 0; }
+        .hero .meta { font-size: 1.2rem; letter-spacing: .06em; margin-top: 8px; }
 
         /* ---------- Countdown ---------- */
-        .countdown { display: flex; gap: 30px; justify-content: center; margin: 40px 0 10px; }
+        .countdown { display: flex; gap: 30px; justify-content: center; margin: 40px 0 14px; }
         .countdown div { min-width: 64px; }
         .countdown .num { font-family: var(--font-head); font-size: 2.6rem; line-height: 1; }
-        .countdown .unit { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-muted); }
+        .countdown .unit { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
 
-        /* ---------- Story ---------- */
-        .story { max-width: 720px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
+        /* ---------- Welcome ---------- */
+        .welcome { max-width: 760px; margin: 0 auto; text-align: center; font-size: 1.15rem; }
 
         /* ---------- Schedule ---------- */
-        .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-        .event {
-            background: var(--color-bg); border: 1px solid #ece8df; border-radius: 4px;
-            padding: 32px 28px; text-align: center;
-        }
-        .event .time { display: block; color: var(--color-accent); letter-spacing: .12em; font-size: .85rem; margin-bottom: 14px; }
+        .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 720px; margin: 0 auto; }
+        .event { background: var(--color-bg); border: 1px solid #ece8df; border-radius: 4px; padding: 34px 28px; text-align: center; }
+        .event .time { display: block; color: var(--color-accent); letter-spacing: .12em; font-size: 1rem; margin-bottom: 12px; }
 
-        /* ---------- Details grid ---------- */
+        /* ---------- Details ---------- */
         .details { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
         .details h3 { font-size: 1.3rem; }
 
@@ -154,46 +165,46 @@
 </head>
 <body id="top">
 
-<!-- ================= NAVIGATION ================= -->
+<!-- ================= NAVIGATION + LANGUAGE TOGGLE ================= -->
 <nav class="nav">
-    <a href="#story">Our Story</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#details">Details</a>
-    <a href="#faq">FAQ</a>
-    <a href="#rsvp">RSVP</a>
+    <a href="#welcome"  data-i18n="nav_welcome">Bienvenue</a>
+    <a href="#schedule" data-i18n="nav_schedule">Programme</a>
+    <a href="#details"  data-i18n="nav_details">Infos</a>
+    <a href="#faq"      data-i18n="nav_faq">FAQ</a>
+    <a href="#rsvp"     data-i18n="nav_rsvp">RSVP</a>
+    <span class="lang">
+        <button type="button" data-lang="fr" title="Français" aria-label="Français">🇫🇷</button>
+        <button type="button" data-lang="hy" title="Հայերեն" aria-label="Հայերեն">🇦🇲</button>
+    </span>
 </nav>
 
 <!-- ================= HERO ================= -->
-<!-- EDIT: your names, tagline, date & city -->
+<!-- EDIT: your names below (the date & venue text are translated automatically) -->
 <header class="hero">
-    <span class="label">We're getting married</span>
+    <span class="label" data-i18n="hero_label">Nous nous marions</span>
     <h1>Alex<span class="amp">&amp;</span>Sam</h1>
-    <p class="meta">September 12, 2026 &nbsp;·&nbsp; Portland, Oregon</p>
+    <p class="meta" data-i18n="hero_date">23 août 2026 · Arménie</p>
 
-    <!-- Countdown — set the date in the data-date attribute (YYYY-MM-DDTHH:MM) -->
-    <div class="countdown" id="countdown" data-date="2026-09-12T16:00">
-        <div><div class="num" data-days>—</div><div class="unit">Days</div></div>
-        <div><div class="num" data-hours>—</div><div class="unit">Hours</div></div>
-        <div><div class="num" data-mins>—</div><div class="unit">Minutes</div></div>
-        <div><div class="num" data-secs>—</div><div class="unit">Seconds</div></div>
+    <!-- Countdown to the church ceremony (2026-08-23 15:00) -->
+    <div class="countdown" id="countdown" data-date="2026-08-23T15:00">
+        <div><div class="num" data-days>—</div><div class="unit" data-i18n="cd_days">Jours</div></div>
+        <div><div class="num" data-hours>—</div><div class="unit" data-i18n="cd_hours">Heures</div></div>
+        <div><div class="num" data-mins>—</div><div class="unit" data-i18n="cd_mins">Minutes</div></div>
+        <div><div class="num" data-secs>—</div><div class="unit" data-i18n="cd_secs">Secondes</div></div>
     </div>
 
-    <p style="margin-top:24px"><a href="#rsvp" class="btn">RSVP</a></p>
+    <p style="margin-top:24px"><a href="#rsvp" class="btn" data-i18n="hero_cta">Confirmer ma présence</a></p>
 </header>
 
-<!-- ================= OUR STORY ================= -->
-<section id="story" class="section">
+<!-- ================= WELCOME ================= -->
+<section id="welcome" class="section">
     <div class="container">
-        <span class="label center" style="display:block">How it started</span>
-        <h2>Our Story</h2>
+        <span class="label center" style="display:block" data-i18n="welcome_label">Bienvenue</span>
+        <h2 data-i18n="welcome_title">Bienvenue à notre mariage</h2>
         <div class="divider"></div>
-        <!-- EDIT: tell your story -->
-        <div class="story muted">
-            <p>We met on a rainy afternoon in 2019, sharing the last table at a tiny coffee shop.
-               One conversation turned into a hundred, and somewhere between road trips and
-               late-night talks we knew this was it.</p>
-            <p>Now, after years of adventures, we can't wait to start the next chapter — and we'd
-               be honored to have you there when we say "I do."</p>
+        <div class="welcome muted">
+            <p data-i18n="welcome_p1">C'est avec une immense joie que nous vous invitons à célébrer notre union. Votre présence à nos côtés en ce jour si spécial est le plus beau des cadeaux.</p>
+            <p data-i18n="welcome_p2">Préparez-vous à partager avec nous des rires, des larmes de bonheur et des souvenirs inoubliables. Bienvenue !</p>
         </div>
     </div>
 </section>
@@ -201,20 +212,19 @@
 <!-- ================= SCHEDULE ================= -->
 <section id="schedule" class="section section--alt">
     <div class="container">
-        <span class="label center" style="display:block">The day of</span>
-        <h2>Schedule</h2>
+        <span class="label center" style="display:block" data-i18n="sched_label">Le jour J</span>
+        <h2 data-i18n="sched_title">Programme</h2>
         <div class="divider"></div>
-        <!-- EDIT: add / remove .event blocks as needed -->
         <div class="events">
             <div class="event">
-                <span class="time">4:00 PM</span>
-                <h3>Ceremony</h3>
-                <p class="muted">Join us in the garden as we exchange vows. Please arrive 15 minutes early to be seated.</p>
+                <span class="time">15:00</span>
+                <h3 data-i18n="ev1_title">Cérémonie à l'église</h3>
+                <p class="muted" data-i18n="ev1_desc">Rejoignez-nous à l'église pour la cérémonie religieuse. Merci d'arriver 15 minutes en avance.</p>
             </div>
             <div class="event">
-                <span class="time">6:30 PM</span>
-                <h3>Dinner &amp; Dancing</h3>
-                <p class="muted">A seated dinner followed by toasts, cake, and a night of celebration on the dance floor.</p>
+                <span class="time">17:00</span>
+                <h3 data-i18n="ev2_title">Réception</h3>
+                <p class="muted" data-i18n="ev2_desc">Cocktail, dîner et soirée dansante au Lianna Garden Hall. Place à la fête !</p>
             </div>
         </div>
     </div>
@@ -223,39 +233,22 @@
 <!-- ================= DETAILS ================= -->
 <section id="details" class="section">
     <div class="container">
-        <span class="label center" style="display:block">Good to know</span>
-        <h2>Details</h2>
+        <span class="label center" style="display:block" data-i18n="det_label">Bon à savoir</span>
+        <h2 data-i18n="det_title">Informations</h2>
         <div class="divider"></div>
         <div class="details">
-            <!-- EDIT: venue -->
             <div>
-                <h3>Venue</h3>
-                <p class="muted">
-                    The Hawthorne Estate<br>
-                    1234 Garden Lane<br>
-                    Portland, OR 97201
-                </p>
-                <!-- EDIT: replace the query with your venue for the map link -->
-                <p><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=The+Hawthorne+Estate+Portland+OR" target="_blank" rel="noopener">Open in Maps</a></p>
+                <h3 data-i18n="det_venue_t">Lieu de réception</h3>
+                <p class="muted">Lianna Garden Hall<br><span data-i18n="det_venue_loc">Arménie</span></p>
+                <p><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Lianna+Garden+Hall+Armenia" target="_blank" rel="noopener" data-i18n="det_venue_map">Voir sur la carte</a></p>
             </div>
-            <!-- EDIT: travel & stay -->
             <div>
-                <h3>Travel &amp; Stay</h3>
-                <p class="muted">The nearest airport is PDX, about 20 minutes away. We've reserved a room block at
-                    the Riverview Hotel — mention "Alex &amp; Sam" when booking.</p>
+                <h3 data-i18n="det_dress_t">Code vestimentaire</h3>
+                <p class="muted" data-i18n="det_dress_d">Tenue de soirée formelle. Prévoyez des chaussures confortables pour danser !</p>
             </div>
-            <!-- EDIT: dress code -->
             <div>
-                <h3>Dress Code</h3>
-                <p class="muted">Garden formal. Think florals and light suits — and comfortable shoes,
-                    the ceremony is on grass!</p>
-            </div>
-            <!-- EDIT: registry -->
-            <div>
-                <h3>Registry</h3>
-                <p class="muted">Your presence is the only present we need. If you'd like to give a gift,
-                    our registry is linked below.</p>
-                <p><a class="btn btn--ghost" href="#" target="_blank" rel="noopener">View Registry</a></p>
+                <h3 data-i18n="det_gift_t">Cadeaux</h3>
+                <p class="muted" data-i18n="det_gift_d">Votre présence est notre plus beau cadeau. Si vous souhaitez nous gâter, une urne sera prévue le jour J.</p>
             </div>
         </div>
     </div>
@@ -264,29 +257,25 @@
 <!-- ================= FAQ ================= -->
 <section id="faq" class="section section--alt">
     <div class="container">
-        <span class="label center" style="display:block">Questions</span>
-        <h2>FAQ</h2>
+        <span class="label center" style="display:block" data-i18n="faq_label">Questions</span>
+        <h2 data-i18n="faq_title">FAQ</h2>
         <div class="divider"></div>
-        <!-- EDIT: add / remove questions -->
         <div class="faq">
             <details>
-                <summary>Can I bring a plus-one?</summary>
-                <p class="muted">Your invitation will note how many seats we've reserved for you. If you have
-                    questions, just reach out!</p>
+                <summary data-i18n="faq_q1">Puis-je venir accompagné(e) ?</summary>
+                <p class="muted" data-i18n="faq_a1">Votre invitation précise le nombre de places réservées. En cas de doute, n'hésitez pas à nous contacter.</p>
             </details>
             <details>
-                <summary>Are kids welcome?</summary>
-                <p class="muted">We love your little ones, but this will be an adults-only celebration so everyone
-                    can relax and dance the night away.</p>
+                <summary data-i18n="faq_q2">Les enfants sont-ils les bienvenus ?</summary>
+                <p class="muted" data-i18n="faq_a2">Nous adorons vos enfants, mais la réception sera réservée aux adultes afin que chacun puisse profiter de la soirée.</p>
             </details>
             <details>
-                <summary>Is there parking?</summary>
-                <p class="muted">Yes — free parking is available on-site, and ride-shares can drop off at the
-                    main entrance.</p>
+                <summary data-i18n="faq_q3">Y a-t-il un parking ?</summary>
+                <p class="muted" data-i18n="faq_a3">Oui, un parking gratuit est disponible sur place.</p>
             </details>
             <details>
-                <summary>What if I have a dietary restriction?</summary>
-                <p class="muted">Let us know in the RSVP form below and we'll make sure you're taken care of.</p>
+                <summary data-i18n="faq_q4">J'ai un régime alimentaire particulier.</summary>
+                <p class="muted" data-i18n="faq_a4">Indiquez-le dans le formulaire ci-dessous et nous nous en occuperons.</p>
             </details>
         </div>
     </div>
@@ -295,50 +284,45 @@
 <!-- ================= RSVP ================= -->
 <section id="rsvp" class="section">
     <div class="container">
-        <span class="label center" style="display:block">Will we see you there?</span>
-        <h2>RSVP</h2>
+        <span class="label center" style="display:block" data-i18n="rsvp_label">Serez-vous des nôtres ?</span>
+        <h2 data-i18n="rsvp_title">Confirmation</h2>
         <div class="divider"></div>
-        <p class="center muted" style="max-width:560px;margin:0 auto 30px">
-            Kindly respond by <strong>August 1, 2026</strong>.
-        </p>
+        <p class="center muted" style="max-width:560px;margin:0 auto 30px" data-i18n="rsvp_deadline">Merci de répondre avant le 1er juillet 2026.</p>
 
         <!--
-          EDIT: How RSVPs are collected.
-          Easiest no-code option: create a free Google Form and either
-            (a) embed it here with an <iframe>, or
-            (b) replace the form's action with your Formspree/Getform endpoint.
-          The form below posts nowhere by default — wire up "action" before going live.
+          EDIT: where RSVPs go. The form posts nowhere by default.
+          Wire "action" to a Formspree/Getform endpoint, or embed a Google Form.
         -->
         <form class="form" action="" method="POST" onsubmit="return rsvpDemo(event)">
             <div class="row">
                 <div class="field">
-                    <label for="name">Full name</label>
+                    <label for="name" data-i18n="rsvp_name">Nom complet</label>
                     <input id="name" name="name" required>
                 </div>
                 <div class="field">
-                    <label for="email">Email</label>
+                    <label for="email" data-i18n="rsvp_email">E-mail</label>
                     <input id="email" name="email" type="email" required>
                 </div>
             </div>
             <div class="row">
                 <div class="field">
-                    <label for="attending">Will you attend?</label>
+                    <label for="attending" data-i18n="rsvp_attend">Serez-vous présent(e) ?</label>
                     <select id="attending" name="attending" required>
-                        <option value="">Choose…</option>
-                        <option value="yes">Joyfully accepts</option>
-                        <option value="no">Regretfully declines</option>
+                        <option value="" data-i18n="rsvp_choose">Choisir…</option>
+                        <option value="yes" data-i18n="rsvp_yes">Avec joie, je serai présent(e)</option>
+                        <option value="no" data-i18n="rsvp_no">Malheureusement, je ne pourrai pas</option>
                     </select>
                 </div>
                 <div class="field">
-                    <label for="guests">Number of guests</label>
+                    <label for="guests" data-i18n="rsvp_guests">Nombre d'invités</label>
                     <input id="guests" name="guests" type="number" min="1" max="6" value="1">
                 </div>
             </div>
             <div class="field">
-                <label for="diet">Dietary restrictions / notes</label>
+                <label for="diet" data-i18n="rsvp_notes">Régime / remarques</label>
                 <textarea id="diet" name="diet" rows="3"></textarea>
             </div>
-            <p class="center"><button class="btn" type="submit">Send RSVP</button></p>
+            <p class="center"><button class="btn" type="submit" data-i18n="rsvp_send">Envoyer</button></p>
         </form>
     </div>
 </section>
@@ -346,21 +330,133 @@
 <!-- ================= FOOTER ================= -->
 <footer>
     <p style="font-family:var(--font-head);font-size:1.8rem;margin:0 0 6px">Alex &amp; Sam</p>
-    <p class="muted" style="color:#c8cdbb">September 12, 2026 · Portland, Oregon</p>
-    <p style="margin-top:18px"><a href="#top" style="color:#eef0e8;text-decoration:none;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase">Back to top ↑</a></p>
-    <p class="muted" style="color:#9aa28a;font-size:.8rem;margin-top:24px">Made with <span class="heart">♥</span></p>
+    <p class="muted" style="color:#c8cdbb" data-i18n="hero_date">23 août 2026 · Arménie</p>
+    <p style="margin-top:18px"><a href="#top" style="color:#eef0e8;text-decoration:none;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase" data-i18n="foot_top">Haut de page ↑</a></p>
+    <p class="muted" style="color:#9aa28a;font-size:.8rem;margin-top:24px"><span data-i18n="foot_made">Fait avec</span> <span class="heart">♥</span></p>
 </footer>
 
 <script>
+    /* =====================================================================
+       TRANSLATIONS — edit the French (fr) and Armenian (hy) strings here.
+       Each key matches a data-i18n="..." attribute in the HTML above.
+       ===================================================================== */
+    var I18N = {
+        fr: {
+            doc_title: "Alex & Sam — 23.08.2026",
+            nav_welcome: "Bienvenue", nav_schedule: "Programme", nav_details: "Infos", nav_faq: "FAQ", nav_rsvp: "RSVP",
+            hero_label: "Nous nous marions",
+            hero_date: "23 août 2026 · Arménie",
+            hero_cta: "Confirmer ma présence",
+            cd_days: "Jours", cd_hours: "Heures", cd_mins: "Minutes", cd_secs: "Secondes",
+            welcome_label: "Bienvenue",
+            welcome_title: "Bienvenue à notre mariage",
+            welcome_p1: "C'est avec une immense joie que nous vous invitons à célébrer notre union. Votre présence à nos côtés en ce jour si spécial est le plus beau des cadeaux.",
+            welcome_p2: "Préparez-vous à partager avec nous des rires, des larmes de bonheur et des souvenirs inoubliables. Bienvenue !",
+            sched_label: "Le jour J", sched_title: "Programme",
+            ev1_title: "Cérémonie à l'église",
+            ev1_desc: "Rejoignez-nous à l'église pour la cérémonie religieuse. Merci d'arriver 15 minutes en avance.",
+            ev2_title: "Réception",
+            ev2_desc: "Cocktail, dîner et soirée dansante au Lianna Garden Hall. Place à la fête !",
+            det_label: "Bon à savoir", det_title: "Informations",
+            det_venue_t: "Lieu de réception", det_venue_loc: "Arménie", det_venue_map: "Voir sur la carte",
+            det_dress_t: "Code vestimentaire",
+            det_dress_d: "Tenue de soirée formelle. Prévoyez des chaussures confortables pour danser !",
+            det_gift_t: "Cadeaux",
+            det_gift_d: "Votre présence est notre plus beau cadeau. Si vous souhaitez nous gâter, une urne sera prévue le jour J.",
+            faq_label: "Questions", faq_title: "FAQ",
+            faq_q1: "Puis-je venir accompagné(e) ?",
+            faq_a1: "Votre invitation précise le nombre de places réservées. En cas de doute, n'hésitez pas à nous contacter.",
+            faq_q2: "Les enfants sont-ils les bienvenus ?",
+            faq_a2: "Nous adorons vos enfants, mais la réception sera réservée aux adultes afin que chacun puisse profiter de la soirée.",
+            faq_q3: "Y a-t-il un parking ?",
+            faq_a3: "Oui, un parking gratuit est disponible sur place.",
+            faq_q4: "J'ai un régime alimentaire particulier.",
+            faq_a4: "Indiquez-le dans le formulaire ci-dessous et nous nous en occuperons.",
+            rsvp_label: "Serez-vous des nôtres ?", rsvp_title: "Confirmation",
+            rsvp_deadline: "Merci de répondre avant le 1er juillet 2026.",
+            rsvp_name: "Nom complet", rsvp_email: "E-mail",
+            rsvp_attend: "Serez-vous présent(e) ?",
+            rsvp_choose: "Choisir…", rsvp_yes: "Avec joie, je serai présent(e)", rsvp_no: "Malheureusement, je ne pourrai pas",
+            rsvp_guests: "Nombre d'invités", rsvp_notes: "Régime / remarques", rsvp_send: "Envoyer",
+            rsvp_thanks: "Merci ! 🌿",
+            foot_top: "Haut de page ↑", foot_made: "Fait avec"
+        },
+        hy: {
+            doc_title: "Ալեքս & Սեմ — 23.08.2026",
+            nav_welcome: "Ողջույն", nav_schedule: "Ծրագիր", nav_details: "Տեղեկություն", nav_faq: "Հարցեր", nav_rsvp: "Հաստատել",
+            hero_label: "Մենք ամուսնանում ենք",
+            hero_date: "23 օգոստոսի 2026 · Հայաստան",
+            hero_cta: "Հաստատել մասնակցությունը",
+            cd_days: "Օր", cd_hours: "Ժամ", cd_mins: "Րոպե", cd_secs: "Վայրկյան",
+            welcome_label: "Բարի գալուստ",
+            welcome_title: "Բարի գալուստ մեր հարսանիք",
+            welcome_p1: "Մեծ ուրախությամբ հրավիրում ենք ձեզ տոնելու մեր միությունը։ Ձեր ներկայությունն այս առանձնահատուկ օրը մեզ համար ամենաթանկ նվերն է։",
+            welcome_p2: "Պատրաստվե՛ք մեզ հետ կիսելու ծիծաղ, ուրախության արցունքներ և անմոռանալի պահեր։ Բարի՛ գալուստ։",
+            sched_label: "Հարսանիքի օրը", sched_title: "Ծրագիր",
+            ev1_title: "Պսակադրություն եկեղեցում",
+            ev1_desc: "Միացե՛ք մեզ եկեղեցում՝ պսակադրության արարողությանը։ Խնդրում ենք ժամանել 15 րոպե շուտ։",
+            ev2_title: "Ընդունելություն",
+            ev2_desc: "Կոկտեյլ, ընթրիք և պարահանդես Lianna Garden Hall-ում։ Տոնը սկսվում է։",
+            det_label: "Օգտակար տեղեկություն", det_title: "Տեղեկություններ",
+            det_venue_t: "Ընդունելության վայր", det_venue_loc: "Հայաստան", det_venue_map: "Դիտել քարտեզի վրա",
+            det_dress_t: "Հագուստի ոճ",
+            det_dress_d: "Պաշտոնական երեկոյան հագուստ։ Հարմարավետ կոշիկներ նախատեսե՛ք պարելու համար։",
+            det_gift_t: "Նվերներ",
+            det_gift_d: "Ձեր ներկայությունը մեր լավագույն նվերն է։ Եթե ցանկանում եք նվեր մատուցել, հարսանիքի օրը կնախատեսվի համապատասխան արկղ։",
+            faq_label: "Հարցեր", faq_title: "Հաճախ տրվող հարցեր",
+            faq_q1: "Կարո՞ղ եմ գալ ուղեկցողով։",
+            faq_a1: "Ձեր հրավերում նշված է ամրագրված տեղերի քանակը։ Հարցերի դեպքում կապվե՛ք մեզ հետ։",
+            faq_q2: "Երեխաները հրավիրվա՞ծ են։",
+            faq_a2: "Մենք սիրում ենք ձեր երեխաներին, սակայն ընդունելությունը նախատեսված է միայն մեծահասակների համար, որպեսզի բոլորը կարողանան վայելել երեկոն։",
+            faq_q3: "Կա՞ ավտոկայանատեղի։",
+            faq_a3: "Այո՛, տեղում առկա է անվճար ավտոկայանատեղի։",
+            faq_q4: "Ունեմ սննդակարգային սահմանափակումներ։",
+            faq_a4: "Նշե՛ք դա ստորև բերված ձևում, և մենք կհոգանք դրա մասին։",
+            rsvp_label: "Կլինե՞ք մեզ հետ։", rsvp_title: "Հաստատում",
+            rsvp_deadline: "Խնդրում ենք պատասխանել մինչև 2026 թ. հուլիսի 1-ը։",
+            rsvp_name: "Անուն Ազգանուն", rsvp_email: "Էլ. փոստ",
+            rsvp_attend: "Կներկայանա՞ք։",
+            rsvp_choose: "Ընտրել…", rsvp_yes: "Ուրախությամբ կներկայանամ", rsvp_no: "Ցավոք, չեմ կարողանա",
+            rsvp_guests: "Հյուրերի քանակ", rsvp_notes: "Սննդակարգ / նշումներ", rsvp_send: "Ուղարկել",
+            rsvp_thanks: "Շնորհակալություն ! 🌿",
+            foot_top: "Վերև ↑", foot_made: "Ստեղծված է"
+        }
+    };
+
+    function setLang(lang) {
+        if (!I18N[lang]) lang = 'fr';
+        var dict = I18N[lang];
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            if (dict[key] != null) el.textContent = dict[key];
+        });
+        if (dict.doc_title) document.title = dict.doc_title;
+        document.querySelectorAll('.lang button').forEach(function (b) {
+            b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('.lang button').forEach(function (b) {
+        b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+    });
+
+    // Initial language: saved choice → browser hint → French
+    (function () {
+        var saved;
+        try { saved = localStorage.getItem('lang'); } catch (e) {}
+        var guess = (navigator.language || '').slice(0, 2);
+        setLang(saved || (I18N[guess] ? guess : 'fr'));
+    })();
+
     /* ---------- Live countdown ---------- */
     (function () {
         var el = document.getElementById('countdown');
         if (!el) return;
         var target = new Date(el.getAttribute('data-date')).getTime();
-        var d = el.querySelector('[data-days]'),
-            h = el.querySelector('[data-hours]'),
-            m = el.querySelector('[data-mins]'),
-            s = el.querySelector('[data-secs]');
+        var d = el.querySelector('[data-days]'), h = el.querySelector('[data-hours]'),
+            m = el.querySelector('[data-mins]'), s = el.querySelector('[data-secs]');
         function pad(n) { return (n < 10 ? '0' : '') + n; }
         function tick() {
             var diff = target - Date.now();
@@ -370,18 +466,17 @@
             m.textContent = pad(Math.floor(diff / 60000) % 60);
             s.textContent = pad(Math.floor(diff / 1000) % 60);
         }
-        tick();
-        setInterval(tick, 1000);
+        tick(); setInterval(tick, 1000);
     })();
 
-    /* ---------- Demo RSVP handler ----------
-       Remove this once you wire the form to a real endpoint (Formspree,
-       Google Forms, etc.). It just shows a thank-you message locally. */
+    /* ---------- Demo RSVP handler (replace with a real endpoint) ---------- */
     function rsvpDemo(e) {
         e.preventDefault();
         var form = e.target;
         if (!form.getAttribute('action')) {
-            form.innerHTML = '<p class="center" style="font-family:var(--font-head);font-size:1.6rem">Thank you! 🌿<br><span class="muted" style="font-size:1rem">(Connect this form to a real endpoint to collect responses.)</span></p>';
+            var lang = document.documentElement.lang || 'fr';
+            form.innerHTML = '<p class="center" style="font-family:var(--font-head);font-size:1.6rem">' +
+                (I18N[lang].rsvp_thanks) + '</p>';
             return false;
         }
         return true;
