@@ -146,6 +146,7 @@
         /* ---------- Schedule ---------- */
         .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 720px; margin: 0 auto; }
         .event { background: var(--color-bg); border: 1px solid #ece8df; border-radius: 4px; padding: 34px 28px; text-align: center; }
+        .event .map { width: 100%; height: 200px; border: 0; border-radius: 4px; margin-top: 18px; display: block; filter: saturate(.92); }
         .event .time { display: block; color: var(--color-accent); letter-spacing: .1em; font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; }
         .event .place { color: var(--color-accent-dark); font-weight: 500; margin: 0 0 10px; }
 
@@ -229,11 +230,16 @@
                 <span class="time">15:00</span>
                 <h3 data-i18n="ev1_title">Cérémonie à l'église</h3>
                 <p class="place" data-i18n="ev1_place">Sourp Harutyun Parakar</p>
+                <!-- EDIT: change the q= query to move the pin (no API key needed) -->
+                <iframe class="map" loading="lazy" title="Sourp Harutyun, Parakar"
+                        src="https://maps.google.com/maps?q=Surb%20Harutyun%20Church%20Parakar%20Armenia&z=15&output=embed"></iframe>
             </div>
             <div class="event">
                 <span class="time">17:00</span>
                 <h3 data-i18n="ev2_title">Réception</h3>
                 <p class="place" data-i18n="ev2_place">Lianna Garden Hall, Parakar, Eritasardutyan 34</p>
+                <iframe class="map" loading="lazy" title="Lianna Garden Hall, Parakar"
+                        src="https://maps.google.com/maps?q=Lianna%20Garden%20Hall%20Parakar%20Armenia&z=15&output=embed"></iframe>
             </div>
         </div>
     </div>
