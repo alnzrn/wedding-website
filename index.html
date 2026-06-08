@@ -253,32 +253,20 @@
           Setup steps: see SHEET-SETUP.md   Apps Script code: google-apps-script.gs
         -->
         <form id="rsvp-form" class="form" onsubmit="return submitRSVP(event)">
-            <div class="row">
-                <div class="field">
-                    <label for="name" data-i18n="rsvp_name">Nom complet</label>
-                    <input id="name" name="name" required>
-                </div>
-                <div class="field">
-                    <label for="email" data-i18n="rsvp_email">E-mail</label>
-                    <input id="email" name="email" type="email" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="field">
-                    <label for="attending" data-i18n="rsvp_attend">Serez-vous présent(e) ?</label>
-                    <select id="attending" name="attending" required>
-                        <option value="" data-i18n="rsvp_choose">Choisir…</option>
-                        <option value="yes" data-i18n="rsvp_yes">Avec joie, je serai présent(e)</option>
-                        <option value="no" data-i18n="rsvp_no">Malheureusement, je ne pourrai pas</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="guests" data-i18n="rsvp_guests">Nombre d'invités</label>
-                    <input id="guests" name="guests" type="number" min="1" max="6" value="1">
-                </div>
+            <div class="field">
+                <label for="name" data-i18n="rsvp_name">Nom complet</label>
+                <input id="name" name="name" required>
             </div>
             <div class="field">
-                <label for="diet" data-i18n="rsvp_notes">Régime / remarques</label>
+                <label for="attending" data-i18n="rsvp_attend">Serez-vous présent(e) ?</label>
+                <select id="attending" name="attending" required>
+                    <option value="" data-i18n="rsvp_choose">Choisir…</option>
+                    <option value="yes" data-i18n="rsvp_yes">Avec joie, je serai présent(e)</option>
+                    <option value="no" data-i18n="rsvp_no">Malheureusement, je ne pourrai pas</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="diet" data-i18n="rsvp_notes">Remarques</label>
                 <textarea id="diet" name="diet" rows="3"></textarea>
             </div>
             <p class="center"><button class="btn" type="submit" data-i18n="rsvp_send">Envoyer</button></p>
@@ -334,7 +322,7 @@
             rsvp_name: "Nom complet", rsvp_email: "E-mail",
             rsvp_attend: "Serez-vous présent(e) ?",
             rsvp_choose: "Choisir…", rsvp_yes: "Avec joie, je serai présent(e)", rsvp_no: "Malheureusement, je ne pourrai pas",
-            rsvp_guests: "Nombre d'invités", rsvp_notes: "Régime / remarques", rsvp_send: "Envoyer",
+            rsvp_notes: "Remarques", rsvp_send: "Envoyer",
             rsvp_thanks: "Merci ! 🌿", rsvp_sending: "Envoi…", rsvp_error: "Une erreur s'est produite. Merci de réessayer.",
             foot_top: "Haut de page ↑", foot_made: "Fait avec"
         },
@@ -372,7 +360,7 @@
             rsvp_name: "Անուն Ազգանուն", rsvp_email: "Էլ. փոստ",
             rsvp_attend: "Կներկայանա՞ք։",
             rsvp_choose: "Ընտրել…", rsvp_yes: "Ուրախությամբ կներկայանամ", rsvp_no: "Ցավոք, չեմ կարողանա",
-            rsvp_guests: "Հյուրերի քանակ", rsvp_notes: "Սննդակարգ / նշումներ", rsvp_send: "Ուղարկել",
+            rsvp_notes: "Նշումներ", rsvp_send: "Ուղարկել",
             rsvp_thanks: "Շնորհակալություն ! 🌿", rsvp_sending: "Ուղարկվում է…", rsvp_error: "Սխալ առաջացավ։ Խնդրում ենք կրկին փորձել։",
             foot_top: "Վերև ↑", foot_made: "Ստեղծված է"
         }
