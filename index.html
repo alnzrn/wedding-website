@@ -146,7 +146,8 @@
         /* ---------- Schedule ---------- */
         .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 720px; margin: 0 auto; }
         .event { background: var(--color-bg); border: 1px solid #ece8df; border-radius: 4px; padding: 34px 28px; text-align: center; }
-        .event .time { display: block; color: var(--color-accent); letter-spacing: .12em; font-size: 1rem; margin-bottom: 12px; }
+        .event .time { display: block; color: var(--color-accent); letter-spacing: .1em; font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; }
+        .event .place { color: var(--color-accent-dark); font-weight: 500; margin: 0 0 10px; }
 
         /* ---------- Details ---------- */
         .details { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
@@ -228,11 +229,13 @@
             <div class="event">
                 <span class="time">15:00</span>
                 <h3 data-i18n="ev1_title">Cérémonie à l'église</h3>
+                <p class="place" data-i18n="ev1_place">Sourp Harutyun Parakar</p>
                 <p class="muted" data-i18n="ev1_desc">Rejoignez-nous à l'église pour la cérémonie religieuse. Merci d'arriver 15 minutes en avance.</p>
             </div>
             <div class="event">
                 <span class="time">17:00</span>
                 <h3 data-i18n="ev2_title">Réception</h3>
+                <p class="place" data-i18n="ev2_place">Lianna Garden Hall, Parakar, Eritasardutyan 34</p>
                 <p class="muted" data-i18n="ev2_desc">Cocktail, dîner et soirée dansante au Lianna Garden Hall. Place à la fête !</p>
             </div>
         </div>
@@ -248,8 +251,8 @@
         <div class="details">
             <div>
                 <h3 data-i18n="det_venue_t">Lieu de réception</h3>
-                <p class="muted">Lianna Garden Hall<br><span data-i18n="det_venue_loc">Arménie</span></p>
-                <p><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Lianna+Garden+Hall+Armenia" target="_blank" rel="noopener" data-i18n="det_venue_map">Voir sur la carte</a></p>
+                <p class="muted" data-i18n="det_venue_addr">Lianna Garden Hall, Parakar, Eritasardutyan 34</p>
+                <p><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Lianna+Garden+Hall+Parakar" target="_blank" rel="noopener" data-i18n="det_venue_map">Voir sur la carte</a></p>
             </div>
             <div>
                 <h3 data-i18n="det_dress_t">Code vestimentaire</h3>
@@ -334,11 +337,13 @@
             welcome_p1: "Nous avons le grand plaisir de vous invitier à assister à la cérémonie de mariage de Lara et Albert. Ce serait pour nous une grande joie de partager ce moment précieux en votre présence ce 23 août 2026.",
             sched_label: "Le jour J", sched_title: "Programme",
             ev1_title: "Cérémonie à l'église",
+            ev1_place: "Sourp Harutyun Parakar",
             ev1_desc: "Rejoignez-nous à l'église pour la cérémonie religieuse. Merci d'arriver 15 minutes en avance.",
             ev2_title: "Réception",
+            ev2_place: "Lianna Garden Hall, Parakar, Eritasardutyan 34",
             ev2_desc: "Cocktail, dîner et soirée dansante au Lianna Garden Hall. Place à la fête !",
             det_label: "Bon à savoir", det_title: "Informations",
-            det_venue_t: "Lieu de réception", det_venue_loc: "Arménie", det_venue_map: "Voir sur la carte",
+            det_venue_t: "Lieu de réception", det_venue_addr: "Lianna Garden Hall, Parakar, Eritasardutyan 34", det_venue_map: "Voir sur la carte",
             det_dress_t: "Code vestimentaire",
             det_dress_d: "Tenue de soirée formelle. Prévoyez des chaussures confortables pour danser !",
             det_gift_t: "Cadeaux",
@@ -371,12 +376,14 @@
             cd_days: "Օր", cd_hours: "Ժամ", cd_mins: "Րոպե", cd_secs: "Վայրկյան",
             welcome_p1: "Սիրով և մեծ ուրախությամբ հրավիրում ենք Ձեզ մասնակցելու Լարայի և Ալբերտի Սուրբ Պսակադրության արարողությանը և հարսանյաց հանդեսին, որոնք տեղի կունենան 2026 թվականի օգոստոսի 23-ին։",
             sched_label: "Հարսանիքի օրը", sched_title: "Ծրագիր",
-            ev1_title: "Պսակադրություն եկեղեցում",
+            ev1_title: "Պսակադրություն",
+            ev1_place: "Սուրբ Հարություն եկեղեցի (Փարաքար)",
             ev1_desc: "Միացե՛ք մեզ եկեղեցում՝ պսակադրության արարողությանը։ Խնդրում ենք ժամանել 15 րոպե շուտ։",
-            ev2_title: "Ընդունելություն",
+            ev2_title: "Տոնախմբություն",
+            ev2_place: "Լիաննա Գարդեն Հոլ, Փարաքար, Երիտասարդության 34",
             ev2_desc: "Կոկտեյլ, ընթրիք և պարահանդես Lianna Garden Hall-ում։ Տոնը սկսվում է։",
             det_label: "Օգտակար տեղեկություն", det_title: "Տեղեկություններ",
-            det_venue_t: "Ընդունելության վայր", det_venue_loc: "Հայաստան", det_venue_map: "Դիտել քարտեզի վրա",
+            det_venue_t: "Ընդունելության վայր", det_venue_addr: "Լիաննա Գարդեն Հոլ, Փարաքար, Երիտասարդության 34", det_venue_map: "Դիտել քարտեզի վրա",
             det_dress_t: "Հագուստի ոճ",
             det_dress_d: "Պաշտոնական երեկոյան հագուստ։ Հարմարավետ կոշիկներ նախատեսե՛ք պարելու համար։",
             det_gift_t: "Նվերներ",
