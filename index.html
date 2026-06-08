@@ -248,10 +248,11 @@
         <p class="center muted" style="max-width:560px;margin:0 auto 30px" data-i18n="rsvp_deadline">Merci de répondre avant le 1er juillet 2026.</p>
 
         <!--
-          EDIT: where RSVPs go. The form posts nowhere by default.
-          Wire "action" to a Formspree/Getform endpoint, or embed a Google Form.
+          RSVPs are saved to a Google Sheet via a Google Apps Script web app.
+          Paste your deployment URL into SHEET_ENDPOINT in the script below.
+          Setup steps: see SHEET-SETUP.md   Apps Script code: google-apps-script.gs
         -->
-        <form class="form" action="" method="POST" onsubmit="return rsvpDemo(event)">
+        <form id="rsvp-form" class="form" onsubmit="return submitRSVP(event)">
             <div class="row">
                 <div class="field">
                     <label for="name" data-i18n="rsvp_name">Nom complet</label>
@@ -334,7 +335,7 @@
             rsvp_attend: "Serez-vous présent(e) ?",
             rsvp_choose: "Choisir…", rsvp_yes: "Avec joie, je serai présent(e)", rsvp_no: "Malheureusement, je ne pourrai pas",
             rsvp_guests: "Nombre d'invités", rsvp_notes: "Régime / remarques", rsvp_send: "Envoyer",
-            rsvp_thanks: "Merci ! 🌿",
+            rsvp_thanks: "Merci ! 🌿", rsvp_sending: "Envoi…", rsvp_error: "Une erreur s'est produite. Merci de réessayer.",
             foot_top: "Haut de page ↑", foot_made: "Fait avec"
         },
         hy: {
@@ -372,7 +373,7 @@
             rsvp_attend: "Կներկայանա՞ք։",
             rsvp_choose: "Ընտրել…", rsvp_yes: "Ուրախությամբ կներկայանամ", rsvp_no: "Ցավոք, չեմ կարողանա",
             rsvp_guests: "Հյուրերի քանակ", rsvp_notes: "Սննդակարգ / նշումներ", rsvp_send: "Ուղարկել",
-            rsvp_thanks: "Շնորհակալություն ! 🌿",
+            rsvp_thanks: "Շնորհակալություն ! 🌿", rsvp_sending: "Ուղարկվում է…", rsvp_error: "Սխալ առաջացավ։ Խնդրում ենք կրկին փորձել։",
             foot_top: "Վերև ↑", foot_made: "Ստեղծված է"
         }
     };
@@ -423,17 +424,51 @@
         tick(); setInterval(tick, 1000);
     })();
 
-    /* ---------- Demo RSVP handler (replace with a real endpoint) ---------- */
-    function rsvpDemo(e) {
+    /* ===================================================================
+       RSVP  ->  Google Sheet
+       Paste your Google Apps Script Web App URL between the quotes below.
+       (5-minute setup in SHEET-SETUP.md; script in google-apps-script.gs.)
+       Leave it empty to just show a local thank-you without saving.
+       =================================================================== */
+    var SHEET_ENDPOINT = "";
+
+    function showThanks(form, lang) {
+        form.innerHTML = '<p class="center" style="font-family:var(--font-head);font-size:1.6rem">' +
+            I18N[lang].rsvp_thanks + '</p>';
+    }
+
+    function submitRSVP(e) {
         e.preventDefault();
         var form = e.target;
-        if (!form.getAttribute('action')) {
-            var lang = document.documentElement.lang || 'fr';
-            form.innerHTML = '<p class="center" style="font-family:var(--font-head);font-size:1.6rem">' +
-                (I18N[lang].rsvp_thanks) + '</p>';
-            return false;
-        }
-        return true;
+        var lang = document.documentElement.lang || 'fr';
+        var btn = form.querySelector('button[type="submit"]');
+
+        // No endpoint configured yet -> local confirmation only.
+        if (!SHEET_ENDPOINT) { showThanks(form, lang); return false; }
+
+        if (btn) { btn.disabled = true; btn.textContent = I18N[lang].rsvp_sending; }
+
+        // form-urlencoded keeps this a "simple" request (no CORS preflight);
+        // no-cors lets the browser POST to Apps Script without a CORS response.
+        fetch(SHEET_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(form)).toString()
+        }).then(function () {
+            showThanks(form, lang);
+        }).catch(function () {
+            if (btn) { btn.disabled = false; btn.textContent = I18N[lang].rsvp_send; }
+            var box = document.getElementById('rsvp-error');
+            if (!box) {
+                box = document.createElement('p');
+                box.id = 'rsvp-error'; box.className = 'center';
+                box.style.cssText = 'color:#b3261e;margin-top:14px';
+                form.appendChild(box);
+            }
+            box.textContent = I18N[lang].rsvp_error;
+        });
+        return false;
     }
 </script>
 </body>
