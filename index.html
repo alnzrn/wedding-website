@@ -36,11 +36,16 @@
             --font-body:     "Jost", "Noto Sans Armenian", "Helvetica Neue", Arial, sans-serif;
             --maxw:          1080px;
         }
-        /* When Armenian is active, prefer the Armenian font stacks */
+        /* When Armenian is active, prefer the Armenian font stacks.
+           Noto Serif Armenian reads heavier than the light Cormorant used for
+           French, so we dial the heading weight down and add a touch of letter
+           spacing to keep both languages visually matched in elegance. */
         html[lang="hy"] {
             --font-head: "Noto Serif Armenian", "Cormorant Garamond", Georgia, serif;
             --font-body: "Noto Sans Armenian", "Jost", "Helvetica Neue", Arial, sans-serif;
         }
+        html[lang="hy"] h1, html[lang="hy"] h2, html[lang="hy"] h3 { font-weight: 400; letter-spacing: .01em; }
+        html[lang="hy"] body, html[lang="hy"] .welcome { font-weight: 300; }
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
