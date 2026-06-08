@@ -36,3 +36,7 @@ typings/
 .env
 .sass-cache/
 *.css.map
+
+# Heavy hero source (use the optimized .webp instead)
+img/our-photo.jpg
+img/our-photo.png

@@ -104,17 +104,25 @@
 
         /* ---------- Hero (with your photo) ---------- */
         .hero {
-            position: relative; min-height: 100vh;
+            position: relative; overflow: hidden; min-height: 100vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 130px 24px 70px; color: #fff;
             background-color: #5e6c54; /* fallback colour shown until the photo loads */
-            /* EDIT: replace img/our-photo.jpg with your own photo (landscape works best).
-               The dark overlay keeps the text readable on top of any image. */
-            background-image:
-                linear-gradient(rgba(38,40,34,.45), rgba(38,40,34,.55)),
-                url('img/our-photo.jpg');
-            background-size: cover; background-position: center; background-repeat: no-repeat;
         }
+        /* Blurred photo layer (kept separate so the text above stays sharp).
+           EDIT: replace img/our-photo.webp with your own photo (landscape works best).
+           Tune the blur amount here ⬇ */
+        .hero::before {
+            content: ""; position: absolute; inset: 0; z-index: 0;
+            background: url('img/our-photo.webp') center/cover no-repeat;
+            filter: blur(5px); transform: scale(1.08); /* scale hides the soft blurred edges */
+        }
+        /* Dark overlay for text readability */
+        .hero::after {
+            content: ""; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(rgba(38,40,34,.45), rgba(38,40,34,.55));
+        }
+        .hero > * { position: relative; z-index: 2; }
         .hero .label { margin-bottom: 18px; color: #e9ede1; }
         .hero h1 { font-size: clamp(3rem, 11vw, 7rem); text-shadow: 0 2px 24px rgba(0,0,0,.25); }
         .hero .amp { font-style: italic; color: #d8e0c8; display: block; font-size: .55em; margin: .1em 0; }
@@ -170,7 +178,6 @@
     <a href="#welcome"  data-i18n="nav_welcome">Bienvenue</a>
     <a href="#schedule" data-i18n="nav_schedule">Programme</a>
     <a href="#details"  data-i18n="nav_details">Infos</a>
-    <a href="#faq"      data-i18n="nav_faq">FAQ</a>
     <a href="#rsvp"     data-i18n="nav_rsvp">RSVP</a>
     <span class="lang">
         <button type="button" data-lang="fr" title="Français" aria-label="Français">🇫🇷</button>
@@ -250,33 +257,6 @@
                 <h3 data-i18n="det_gift_t">Cadeaux</h3>
                 <p class="muted" data-i18n="det_gift_d">Votre présence est notre plus beau cadeau. Si vous souhaitez nous gâter, une urne sera prévue le jour J.</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section id="faq" class="section section--alt">
-    <div class="container">
-        <span class="label center" style="display:block" data-i18n="faq_label">Questions</span>
-        <h2 data-i18n="faq_title">FAQ</h2>
-        <div class="divider"></div>
-        <div class="faq">
-            <details>
-                <summary data-i18n="faq_q1">Puis-je venir accompagné(e) ?</summary>
-                <p class="muted" data-i18n="faq_a1">Votre invitation précise le nombre de places réservées. En cas de doute, n'hésitez pas à nous contacter.</p>
-            </details>
-            <details>
-                <summary data-i18n="faq_q2">Les enfants sont-ils les bienvenus ?</summary>
-                <p class="muted" data-i18n="faq_a2">Nous adorons vos enfants, mais la réception sera réservée aux adultes afin que chacun puisse profiter de la soirée.</p>
-            </details>
-            <details>
-                <summary data-i18n="faq_q3">Y a-t-il un parking ?</summary>
-                <p class="muted" data-i18n="faq_a3">Oui, un parking gratuit est disponible sur place.</p>
-            </details>
-            <details>
-                <summary data-i18n="faq_q4">J'ai un régime alimentaire particulier.</summary>
-                <p class="muted" data-i18n="faq_a4">Indiquez-le dans le formulaire ci-dessous et nous nous en occuperons.</p>
-            </details>
         </div>
     </div>
 </section>
