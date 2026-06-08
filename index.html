@@ -14,7 +14,7 @@
     <meta property="og:description" content="Nous serions honorés de votre présence à notre mariage.">
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>">
 
     <!-- Fonts: classic serif for headings + clean sans for body (Noto covers Armenian) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,8 +139,9 @@
         .countdown .num { font-family: var(--font-head); font-size: 2.6rem; line-height: 1; }
         .countdown .unit { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
 
-        /* ---------- Welcome ---------- */
-        .welcome { max-width: 760px; margin: 0 auto; text-align: center; font-size: 1.15rem; }
+        /* ---------- Welcome (the invitation centerpiece) ---------- */
+        .welcome { max-width: 760px; margin: 0 auto; text-align: center; }
+        .welcome p { font-family: var(--font-head); font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.5; margin: 0; color: var(--color-text); }
 
         /* ---------- Schedule ---------- */
         .events { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 720px; margin: 0 auto; }
@@ -211,12 +212,8 @@
 <!-- ================= WELCOME ================= -->
 <section id="welcome" class="section">
     <div class="container">
-        <span class="label center" style="display:block" data-i18n="welcome_label">Bienvenue</span>
-        <h2 data-i18n="welcome_title">Bienvenue à notre mariage</h2>
-        <div class="divider"></div>
-        <div class="welcome muted">
-            <p data-i18n="welcome_p1">C'est avec une immense joie que nous vous invitons à célébrer notre union. Votre présence à nos côtés en ce jour si spécial est le plus beau des cadeaux.</p>
-            <p data-i18n="welcome_p2">Préparez-vous à partager avec nous des rires, des larmes de bonheur et des souvenirs inoubliables. Bienvenue !</p>
+        <div class="welcome">
+            <p data-i18n="welcome_p1">C'est avec amour que nous vous invitons à assister à notre cérémonie de mariage et à partager notre bonheur.</p>
         </div>
     </div>
 </section>
@@ -334,10 +331,7 @@
             hero_date: "23 août 2026 · Arménie",
             hero_cta: "Confirmer ma présence",
             cd_days: "Jours", cd_hours: "Heures", cd_mins: "Minutes", cd_secs: "Secondes",
-            welcome_label: "Bienvenue",
-            welcome_title: "Bienvenue à notre mariage",
-            welcome_p1: "C'est avec une immense joie que nous vous invitons à célébrer notre union. Votre présence à nos côtés en ce jour si spécial est le plus beau des cadeaux.",
-            welcome_p2: "Préparez-vous à partager avec nous des rires, des larmes de bonheur et des souvenirs inoubliables. Bienvenue !",
+            welcome_p1: "C'est avec amour que nous vous invitons à assister à notre cérémonie de mariage et à partager notre bonheur.",
             sched_label: "Le jour J", sched_title: "Programme",
             ev1_title: "Cérémonie à l'église",
             ev1_desc: "Rejoignez-nous à l'église pour la cérémonie religieuse. Merci d'arriver 15 minutes en avance.",
@@ -375,10 +369,7 @@
             hero_date: "23 օգոստոսի 2026 · Հայաստան",
             hero_cta: "Հաստատել մասնակցությունը",
             cd_days: "Օր", cd_hours: "Ժամ", cd_mins: "Րոպե", cd_secs: "Վայրկյան",
-            welcome_label: "Բարի գալուստ",
-            welcome_title: "Բարի գալուստ մեր հարսանիք",
-            welcome_p1: "Մեծ ուրախությամբ հրավիրում ենք ձեզ տոնելու մեր միությունը։ Ձեր ներկայությունն այս առանձնահատուկ օրը մեզ համար ամենաթանկ նվերն է։",
-            welcome_p2: "Պատրաստվե՛ք մեզ հետ կիսելու ծիծաղ, ուրախության արցունքներ և անմոռանալի պահեր։ Բարի՛ գալուստ։",
+            welcome_p1: "Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց հանդիսությանը և կիսելու մեր ուրախությունը:",
             sched_label: "Հարսանիքի օրը", sched_title: "Ծրագիր",
             ev1_title: "Պսակադրություն եկեղեցում",
             ev1_desc: "Միացե՛ք մեզ եկեղեցում՝ պսակադրության արարողությանը։ Խնդրում ենք ժամանել 15 րոպե շուտ։",
