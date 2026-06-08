@@ -194,7 +194,7 @@
 <!-- EDIT: your names below (the date & venue text are translated automatically) -->
 <header class="hero">
     <span class="label" data-i18n="hero_label">Nous nous marions</span>
-    <h1>Lara<span class="amp">&amp;</span>Albert</h1>
+    <h1><span data-i18n="name_first">Lara</span><span class="amp" data-i18n="name_amp">&amp;</span><span data-i18n="name_last">Albert</span></h1>
     <p class="meta" data-i18n="hero_date">23 août 2026 · Arménie</p>
 
     <!-- Countdown to the church ceremony (2026-08-23 15:00) -->
@@ -314,7 +314,7 @@
 
 <!-- ================= FOOTER ================= -->
 <footer>
-    <p style="font-family:var(--font-head);font-size:1.8rem;margin:0 0 6px">Lara &amp; Albert</p>
+    <p style="font-family:var(--font-head);font-size:1.8rem;margin:0 0 6px" data-i18n="names_full">Lara &amp; Albert</p>
     <p class="muted" style="color:#c8cdbb" data-i18n="hero_date">23 août 2026 · Arménie</p>
     <p style="margin-top:18px"><a href="#top" style="color:#eef0e8;text-decoration:none;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase" data-i18n="foot_top">Haut de page ↑</a></p>
     <p class="muted" style="color:#9aa28a;font-size:.8rem;margin-top:24px"><span data-i18n="foot_made">Fait avec</span> <span class="heart">♥</span></p>
@@ -328,6 +328,7 @@
     var I18N = {
         fr: {
             doc_title: "Lara & Albert — 23.08.2026",
+            name_first: "Lara", name_amp: "&", name_last: "Albert", names_full: "Lara & Albert",
             nav_welcome: "Bienvenue", nav_schedule: "Programme", nav_details: "Infos", nav_faq: "FAQ", nav_rsvp: "RSVP",
             hero_label: "Nous nous marions",
             hero_date: "23 août 2026 · Arménie",
@@ -367,7 +368,8 @@
             foot_top: "Haut de page ↑", foot_made: "Fait avec"
         },
         hy: {
-            doc_title: "Ալեքս & Սեմ — 23.08.2026",
+            doc_title: "Լարա և Ալբերտ — 23.08.2026",
+            name_first: "Լարա", name_amp: "և", name_last: "Ալբերտ", names_full: "Լարա և Ալբերտ",
             nav_welcome: "Ողջույն", nav_schedule: "Ծրագիր", nav_details: "Տեղեկություն", nav_faq: "Հարցեր", nav_rsvp: "Հաստատել",
             hero_label: "Մենք ամուսնանում ենք",
             hero_date: "23 օգոստոսի 2026 · Հայաստան",
